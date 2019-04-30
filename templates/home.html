@@ -1,0 +1,139 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %}
+world of books
+{% endblock title %}
+{%block content%}
+<header>
+
+    <div class="headering">
+
+        <div class="backing">
+            <div class="container">
+                <h2>Welcome To World Of Books</h2>
+            </div>
+        </div>
+    </div>
+
+</header>
+
+<!-- Start Header -->
+<div class="smail-cont" style="background-color: #e2e2e2;    border-top: 4px solid;border-bottom: 2px solid;">
+    <img src="{% static 'img/2085674.jpg' %}" alt="aa" width="40%" height="450px">
+
+    <h2>World OF Books<br>Everything you want and more </h2>
+</div>
+<!-- End Header -->
+<section class="wrapper">
+<div class="container-fostrap">
+    <div>
+        <h1 class="heading" style="color: #000">
+            World OF Books
+        </h1>
+    </div>
+</div>
+</section>
+
+<!-- Start fact Area -->
+
+<section class="facts-area pt-100 pb-100">
+  <div class="container">
+    <div class="row" style="margin-left: 30%;">
+      <div class="col-lg-3 col-md-6 single-fact">
+        <h2 class="counter">{{num_books}}</h2>
+        <p class="text-uppercase">Books</p>
+      </div>
+      <div class="col-lg-3 col-md-6 single-fact">
+        <h2 class="counter">{{num_authers}}</h2>
+        <p class="text-uppercase">Authors</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end fact Area -->
+
+
+<!-- End famous_book area -->
+
+<section class="wrapper">
+<div class="container-fostrap">
+    <div class="content">
+        <div class="container">
+          <h2 class="heading-two">
+            The most famous books
+          </h2>
+            <div class="row">
+              {% for famous_book in books %}
+                <div class="col-xs-12 col-sm-4 col-md-3">
+                    <div class="card">
+                      {% if famous_book.cover %}
+                        <img style="width:100%" src="{{famous_book.cover.url}}"/>
+                      {% endif %}
+                        <div class="card-content">
+                            <h4 class="card-title">
+                              {{famous_book.title}}
+                            </h4>
+                            <div class="text-danger pull-left">
+                              {% if famous_book.auther.img %}
+                              <img style="width:15%" class="img-fluid" src="{{famous_book.auther.img.url}}" alt="">
+                              {% endif %}
+                              <a href="{% url 'auther-detail' famous_book.auther.slug %}">{{famous_book.auther.name}}</a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class="card-read-more">
+                            <a href="{% url 'book-detail' famous_book.slug %}" class="btn btn-link btn-block">
+                                View Book
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+<br>
+<!-- End famous_book area -->
+
+<!-- Start consultans Area -->
+<section class="consultans-area section-gap" id="consultant">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-8 pb-80 header-text">
+        <h2 class="heading-two">
+          Our Team
+        </h2>
+      </div>
+    </div>
+    <div class="row">
+      {% for person in team %}
+      <div class="col-lg-3 col-md-3 vol-wrap">
+        <div class="single-con">
+          <div class="content">
+              {% comment %} <a href="#" target="_blank"> {% endcomment %}
+                <div class="content-overlay"></div>
+                {% if person.img %}
+                <img class="content-image img-fluid d-block mx-auto" src="{{ person.img.url }}" alt="">
+                {% endif %}
+                  <div class="content-details fadeIn-bottom">
+                    <h4>{{ person.name }}</h4>
+                    <p>
+                      {{person.specialty}}
+                    </p>
+                  </div>
+              {% comment %} </a> {% endcomment %}
+           </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+<!-- End consultans Area -->
+
+
+{% endblock%}

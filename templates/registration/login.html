@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load bootstrap4 %}
+{% block content %}
+<section class="wrapper">
+<div class="container-fostrap">
+    <div>
+        <h1 class="heading" style="color: #000">
+            World OF Books
+        </h1>
+        <h2 class="heading-two">
+          Log In
+        </h2>
+    </div>
+<div id="formWrapper">
+<div id="form">
+<form method="POST" style="margin-left:30%; margin-top:0;margin-right:30%;margin-bottom:0">{% csrf_token %}
+  <img src="{% static 'img/ssss2195406.jpg' %}" alt="aa" style="    width: 100%;">
+  {% bootstrap_form form %}
+  {% buttons %}
+      <button type="submit" class="btn btn-primary">Log In</button>
+  {% endbuttons %}
+</form>
+<div class="">
+  <a href="{% url 'password_reset' %}">password reset</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+{% endblock content %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block title %}
+{{book.title}}
+{% endblock title %}
+{% block welcome %}{{book.title}}{% endblock welcome %}
+{% block content %}
+<div class="container">
+  <div class="component">
+    <ul class="align">
+      <li>
+        <figure class='book' style="margin-bottom: 50%;">
+          <!-- Front -->
+          <ul class='hardcover_front'>
+            <li>
+              {% if book.cover %}<img src="{{book.cover.url}}" alt="ss" style="height:100%;width: 100%;">{% endif %}
+            </li>
+            <li></li>
+          </ul>
+          <!-- Pages -->
+          <ul class='page'>
+            <li></li>
+            <li>
+              <a class="btnn" href="{{book.pdf.url}}">Download</a>
+            </li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+          <!-- Back -->
+          <ul class='hardcover_back'>
+            <li></li>
+            <li></li>
+          </ul>
+          <ul class='book_spine'>
+            <li></li>
+            <li></li>
+          </ul>
+          <figcaption>
+            <h1>{{book.title}}</h1>
+            <a href="{% url 'auther-detail' book.auther.slug %}"><span>{{book.auther.name}}</span></a>
+            <p>{{book.summary}}.</p>
+          </figcaption>
+        </figure>
+      </li>
+    </ul>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,138 @@
+ body {
+
+     font-family: Helvetica, Arial, sans-serif;
+ }
+
+ h3 {
+     margin: 0;
+ }
+
+ .our-team {
+     text-align: center;
+     position: relative;
+     color: #fff;
+ }
+
+ .our-team:before {
+     content: "";
+     position: absolute;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.5);
+     transition: all 0.3s ease 0s;
+     opacity: 0;
+ }
+
+ .our-team:hover:before {
+     opacity: 1;
+ }
+
+ .our-team img {
+     width: 100%;
+     height: auto;
+ }
+
+ .our-team .team-content {
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     width: 100%;
+     padding: 30px 0;
+     background-color: rgba(134, 16, 74, 0.9);
+     transition: all 0.3s ease 0s;
+ }
+
+ .our-team:hover .team-content {
+     bottom: 20%;
+ }
+
+ .our-team .team-content .name {
+     font-size: 22px;
+     font-weight: 800;
+     letter-spacing: 1px;
+     display: block;
+     margin-bottom: 7px;
+     text-transform: uppercase;
+     transition: all 0.3s ease 0s;
+     cursor: pointer;
+ }
+
+ .our-team:hover .team-content .name {
+     transform: translateY(30px);
+     transition-delay: 0.3s;
+ }
+
+ .our-team .team-content .post {
+     font-size: 17px;
+     display: block;
+     transition: all 0.3s ease 0s;
+     text-transform: capitalize;
+ }
+
+ .our-team:hover .team-content .post {
+     transform: translateY(-30px);
+     transition-delay: 0.3s;
+ }
+
+ @media screen and (max-width:990px) {
+     .our-team {
+         margin-bottom: 30px !important;
+     }
+ }
+
+ .col-md-3 {
+
+     margin-bottom: 15px
+ }
+
+ .img-responsive {
+
+     height: 340px !important
+ }
+
+ header .headering {
+     background-image: url(../img/333j-zamora-267753-unsplash.jpg);
+     background-size: cover;
+     height: 500px;
+     margin-bottom: 21px !important;
+ }
+
+
+ .our-team .team-content .name {
+     font-size: 22px;
+     font-weight: 800;
+     letter-spacing: 1px;
+     display: block;
+     margin-bottom: 7px;
+     text-transform: uppercase;
+     transition: all 0.3s ease 0s;
+     cursor: pointer;
+     color: #fff !important;
+ }
+
+
+ .heading-author {
+     height: 51px;
+
+     background-color: #313030;
+     color: #fff;
+
+
+ }
+
+ .heading-author:hover {
+
+     width: 100%;
+     margin-left: 0%;
+     background-color: navy;
+
+ }
+
+
+ .heading-author h1 {
+
+     text-align: center;
+     font-style: oblique;
+ }

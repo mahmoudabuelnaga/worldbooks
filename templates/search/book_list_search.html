@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="container h-100">
+  <div class="d-flex justify-content-center h-100" style="margin-top: 10%;">
+    <div class="searchbar">
+  <form class="form-inline my-2 my-lg-0" method="get">
+    {% bootstrap_form filter.form %}
+    {% block buttons %}
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    {% endblock buttons %}
+  </form>
+</div>
+</div>
+</div>
+<hr>
+<br><br><br>
+
+<div class="content" >
+    <div class="container">
+        <div class="row" style="margin-bottom: 25%">
+  {% for book in filter.qs %}
+  <div class="col-xs-12 col-sm-4 col-md-3">
+      <div class="card">
+        {% if book.cover %}
+          <img style="width:100%" src="{{book.cover.url}}"/>
+        {% endif %}
+          <div class="card-content">
+              <h4 class="card-title">
+                {{book.title}}
+              </h4>
+              <div class="text-danger pull-left">
+                {% if book.auther.img %}
+                <img style="width:15%" class="img-fluid" src="{{book.auther.img.url}}" alt="">
+                {% endif %}
+                <a href="{% url 'auther-detail' book.auther.slug %}">{{book.auther.name}}</a>
+              </div>
+              <div class="clearfix"></div>
+          </div>
+          <div class="card-read-more">
+              <a href="{% url 'book-detail' book.slug %}" class="btn btn-link btn-block">
+                  Details
+              </a>
+          </div>
+      </div>
+  </div>
+  {% endfor %}
+</div>
+</div>
+</div>
+<br><br><br>
+{% endblock %}
