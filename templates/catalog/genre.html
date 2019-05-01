@@ -8,47 +8,45 @@ genre
 <section class="wrapper">
   <div class="container-fostrap">
     <div>
-        <h1 class="heading" style="color: #000">
-            World OF Books
-        </h1>
-        <h2 class="heading-two">
-          Genre
-        </h2>
+      <h1 class="heading" style="color: #000">
+        World OF Books
+      </h1>
+      <h2 class="heading-two">
+        Genre
+      </h2>
     </div>
-
     <div class="content">
       <div class="container">
         <div class="row">
           {% for genre in genre_list %}
           <div class="col-xs-12 col-sm-4 col-md-3">
             <div class="card">
-            <div class="card-content">
-              <h4 class="card-title python-tag">
-                <a href="{% url 'genre-detail' genre.slug %}">{{genre.name}}</a>
-              </h4>
-              <div class="clearfix"></div>
+              <div class="card-content">
+                <h4 class="card-title python-tag">
+                  <a href="{% url 'genre-detail' genre.slug %}">{{genre.name}}</a>
+                </h4>
+                <div class="clearfix"></div>
+              </div>
+              <h2 class="counter card-read-more">{{genre.books_set.count}}</h2>
             </div>
-            <h2 class="counter card-read-more">{{genre.books_set.count}}</h2>
           </div>
+          {% endfor %}
         </div>
-        {% endfor %}
       </div>
     </div>
-  </div>
 </section>
 {% if is_paginated %}
 <nav aria-label="Page navigation example">
   <ul class="pagination justify-content-center">
-        {% if page_obj.has_previous %}
-          <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Previous </a>
-        {% endif %}
-        <span class="page-current">
-          <p> | Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }} | </p>
-        </span>
-        {% if page_obj.has_next %}
-          <a href="{{ request.path }}?page={{ page_obj.next_page_number }}"> Next</a>
-        {% endif %}
-    </div>
+    {% if page_obj.has_previous %}
+    <a href="{{ request.path }}?page={{ page_obj.previous_page_number }}">Previous </a>
+    {% endif %}
+    <span class="page-current">
+      <p> | Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }} | </p>
+    </span>
+    {% if page_obj.has_next %}
+    <a href="{{ request.path }}?page={{ page_obj.next_page_number }}"> Next</a>
+    {% endif %}
   </ul>
 </nav>
 {% endif %}

@@ -2,41 +2,38 @@
 {% block title %}
 {{book.title}}
 {% endblock title %}
-{% block welcome %}{{auther.name}}{% endblock welcome %}
 {% block content %}
 <section class="banner-area relative" id="home">
   <div class="container">
     <h2 class="heading-two" style="margin-left: 40%;">
       {{auther.name}}
     </h2>
-      <div class="row fullscreen align-items-center justify-content-center">
-        <img src="{{auther.img.url}}" style="width: 25% ;margin-top: -50%;height:35%" class="img-thumbnail">
-      </div>
-<div class="" style="margin-top: -50%;">
-  <hr>
-  {% for book in auther.books_set.all %}
-  <div class="col-xs-12 col-sm-4 col-md-3">
-      <div class="card">
-        {% if book.cover %}
+    <div class="row fullscreen align-items-center justify-content-center">
+      <img src="{{auther.img.url}}" style="width: 25% ;margin-top: -50%;height:35%" class="img-thumbnail">
+    </div>
+    <div class="" style="margin-top: -50%;">
+      <hr>
+      {% for book in auther.books_set.all %}
+      <div class="col-xs-12 col-sm-4 col-md-3">
+        <div class="card">
+          {% if book.cover %}
           <img style="width:100%" src="{{book.cover.url}}"/>
-        {% endif %}
+          {% endif %}
           <div class="card-content">
-              <h4 class="card-title">
-                {{book.title}}
-              </h4>
-              <div class="clearfix"></div>
+            <h4 class="card-title">
+              {{book.title}}
+            </h4>
+            <div class="clearfix"></div>
           </div>
           <div class="card-read-more">
-              <a href="{% url 'book-detail' book.slug %}" class="btn btn-link btn-block">
-                  Details
-              </a>
+            <a href="{% url 'book-detail' book.slug %}" class="btn btn-link btn-block">
+              Details
+            </a>
           </div>
+        </div>
       </div>
+      {% endfor %}
+    </div>
   </div>
-  {% endfor %}
-
-</div>
-  </div>
-
 </section>
 {% endblock content %}

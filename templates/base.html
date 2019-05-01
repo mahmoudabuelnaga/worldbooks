@@ -1,8 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html>
-
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,84 +26,76 @@
     <link rel="stylesheet" href="{% static 'colorlib/css/c1.css' %}">
     <link rel="stylesheet" href="{% static 'css.css' %}">
     <link rel="stylesheet" href="{% static 'main.css' %}">
-</head>
-
-<body>
-
+  </head>
+  <body>
     <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-        <div class="container">
-            <div class="logos">
-                <img src="{% static 'img/Letter-W-Free-PNG-Image.png' %}" alt="le" class="potos" style="margin-top: -5px;margin-right: -12px;">
-                <a class="navbar-brand" href="{% url 'home' %}" style="margin-top: -3px;font-weight: bolder;font-style: oblique;">orld OF Books</a>
-            </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-            <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-top: -7px;">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'books' %}">Books</a>
-                    </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'authers' %}">Authors</a>
-                    </li>
-                    <li class="nav-item">
-                       <a class="nav-link" href="{% url 'genre' %}">Genre</a>
-                   </li>
-                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact' %}">Contact</a>
-                    </li>
-                    {% if user.is_authenticated %}
-                    <li class="nav-item dropdown">
-                      <div class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="    border: 1px solid #27a289;border-radius: 11px;">
-                          {{ user.username }}
-                      </div>
-                      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      {% if user.is_staff  %}
-                          <a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a>
-                      {% endif %}
-                      <a class="dropdown-item" href="{% url 'search'%}">Search for your book</a>
-                      <a class="dropdown-item" href="{% url 'password_change'%}">password_change</a>
-                      <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
-                      </div>
-                   </li>
-                    {% else %}
-                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="    border: 1px solid #27a289;border-radius: 11px;">
-                            Login & SignUp
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{% url 'login' %}">Log In</a>
-                            <a class="dropdown-item" href="{% url 'signup' %}">Sign Up</a>
-                        </div>
-                    </li>
-                    {% endif %}
-
-                </ul>
-
-
-            </div>
-    </nav>
+      <div class="container">
+        <div class="logos">
+          <img src="{% static 'img/Letter-W-Free-PNG-Image.png' %}" alt="le" class="potos" style="margin-top: -5px;margin-right: -12px;">
+          <a class="navbar-brand" href="{% url 'home' %}" style="margin-top: -3px;font-weight: bolder;font-style: oblique;">orld OF Books</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="margin-top: -7px;">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'books' %}">Books</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'authers' %}">Authors</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'genre' %}">Genre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'contact' %}">Contact</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown">
+              <div class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="    border: 1px solid #27a289;border-radius: 11px;">
+                {{ user.username }}
+              </div>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                {% if user.is_staff  %}
+                <a class="dropdown-item" href="{% url 'admin:index' %}">Admin</a>
+                {% endif %}
+                <a class="dropdown-item" href="{% url 'search'%}">Search for your book</a>
+                <a class="dropdown-item" href="{% url 'password_change'%}">password_change</a>
+                <a class="dropdown-item" href="{% url 'logout' %}">Log Out</a>
+              </div>
+            </li>
+            {% else %}
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="    border: 1px solid #27a289;border-radius: 11px;">
+                Login & SignUp
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'login' %}">Log In</a>
+                <a class="dropdown-item" href="{% url 'signup' %}">Sign Up</a>
+              </div>
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
     </div>
-{% block content %}
+    {% block content %}
 
-{% endblock content %}
-{% block pagination %}
+    {% endblock content %}
+    {% block pagination %}
 
-{% endblock pagination%}
-
-
-            <div class="copyri" style="margin-bottom:-10%">
-                <h1>Copyright &copy; By Group 13 <i class="fa fa-heart" aria-hidden="true"></i>
-                    Obour Institutes
-                </h1>
-            </div>
+    {% endblock pagination%}
+    <div class="copyri" style="margin-bottom:-10%">
+      <h1>Copyright &copy; By Group 13 <i class="fa fa-heart" aria-hidden="true"></i>
+        Obour Institutes
+      </h1>
+    </div>
     <script src="{% static 'js/java.js' %}"></script>
     <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
-</body>
+  </body>
 </html>

@@ -5,48 +5,47 @@
 {% block welcome %}{{genre.name}}{% endblock welcome %}
 {% block content %}
 <section class="wrapper">
-<div class="container-fostrap">
+  <div class="container-fostrap">
     <div>
-        <h1 class="heading" style="color: #000">
-            World OF Books
-        </h1>
-        <h2 class="heading-two">
-          {{genre.name}}
-        </h2>
+      <h1 class="heading" style="color: #000">
+        World OF Books
+      </h1>
+      <h2 class="heading-two">
+        {{genre.name}}
+      </h2>
     </div>
     <div class="content">
-        <div class="container">
-            <div class="row" style="margin-bottom: 25%">
-              {% for book in genre.books_set.all %}
-                <div class="col-xs-12 col-sm-4 col-md-3">
-                    <div class="card">
-                      {% if book.cover %}
-                        <img style="width:100%" src="{{book.cover.url}}"/>
-                      {% endif %}
-                        <div class="card-content">
-                            <h4 class="card-title">
-                              {{book.title}}
-                            </h4>
-                            <div class="text-danger pull-left">
-                              {% if book.auther.img %}
-                              <img style="width:15%" class="img-fluid" src="{{book.auther.img.url}}" alt="">
-                              {% endif %}
-                              <a href="{% url 'auther-detail' book.auther.slug %}">{{book.auther.name}}</a>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="card-read-more">
-                            <a href="{% url 'book-detail' book.slug %}" class="btn btn-link btn-block">
-                                Details
-                            </a>
-                        </div>
-                    </div>
+      <div class="container">
+        <div class="row" style="margin-bottom: 25%">
+          {% for book in genre.books_set.all %}
+          <div class="col-xs-12 col-sm-4 col-md-3">
+            <div class="card">
+              {% if book.cover %}
+              <img style="width:100%" src="{{book.cover.url}}"/>
+                {% endif %}
+                <div class="card-content">
+                  <h4 class="card-title">
+                    {{book.title}}
+                  </h4>
+                  <div class="text-danger pull-left">
+                    {% if book.auther.img %}
+                    <img style="width:15%" class="img-fluid" src="{{book.auther.img.url}}" alt="">
+                    {% endif %}
+                    <a href="{% url 'auther-detail' book.auther.slug %}">{{book.auther.name}}</a>
+                  </div>
+                  <div class="clearfix"></div>
                 </div>
-                {% endfor %}
+                <div class="card-read-more">
+                  <a href="{% url 'book-detail' book.slug %}" class="btn btn-link btn-block">
+                    Details
+                  </a>
+                </div>
+              </div>
             </div>
+            {% endfor %}
+          </div>
         </div>
+      </div>
     </div>
-</div>
 </section>
-
 {% endblock content %}
